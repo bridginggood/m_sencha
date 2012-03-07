@@ -4,7 +4,8 @@ Ext.define('BG.view.LoginView', {
     requires: [
         'Ext.form.FieldSet',
 		'Ext.field.Email',
-        'Ext.field.Password'
+        'Ext.field.Password',
+		'Ext.LoadMask',
     ],
 
     config: {
@@ -26,12 +27,14 @@ Ext.define('BG.view.LoginView', {
                         xtype: 'emailfield',
                         name : 'email',
                         label: 'E-mail',
-						placeHolder: 'E-mail'
+						placeHolder: 'E-mail',
+						value: 'jslim@bg.com' //Temp
                     },{
                         xtype: 'passwordfield',
                         name : 'password',
                         label: 'Password',
-						placeHolder: 'Password'
+						placeHolder: 'Password',
+						value: 'foobar' //Temp
                     }
                 ],
             },{
@@ -41,5 +44,5 @@ Ext.define('BG.view.LoginView', {
                 ui:     'confirm'
             }
         ]
-    }
+    },
 });

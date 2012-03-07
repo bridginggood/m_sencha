@@ -3,8 +3,12 @@ Ext.define('BG.model.User',{
 	
 	config:{
 		fields: [
-			{name: 'email', type:'string'},
-			{name: 'password', type:'string'},
+			{name: 'UserId', type:'string'},
+			{name: 'UserEmail', type:'string'},
+			{name: 'UserFirstName', type:'string'},
+			{name: 'UserLastName', type:'string'},
+			{name: 'UserType', type:'string'},
+			{name: 'QRCode', type:'string'},
 		]
 	},
 });

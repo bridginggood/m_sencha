@@ -20,23 +20,28 @@ Ext.define('BG.controller.LoginController', {
 		console.log('Start doLogin');
 		//Ext.Viewport.add({xtype: 'mainView'});	//Can this line be omitted? Why? Because it has already been initialized from the app.js with 'requires' statement? Hmm...
 		var loginForm = this.getLoginView();
+		
+		//Set loading dialog mask
+		loginForm.setMasked({xtype: 'loadmask', message: 'Loading'});
+		
+		//By default, calls URL using AJAX proxy
 		loginForm.submit({
 			method:'POST',
 			url: './app/proxy/LoginProxy.php',
-			scriptTag: true,
-			waitTitle: 'Connecting',
-			waitMsg: 'Please wait...',
-			resultCode: function(r){
-				console.log(r);
-			},
-			success:function(){
+
+			//On successful login
+			success:function(form, response){
+				loginForm.setMasked(false);
+				console.log(response);
 				Ext.Viewport.setActiveItem({xtype: 'mainView'});
 			},
+			
+			//Failed login
 			failure:function(){
+				loginForm.setMasked(false);
 				Ext.Msg.alert('Error', 'Invalid username/password');
 			},
 		});
-		//Ext.Viewport.setActiveItem({xtype: 'mainView'});
 		console.log('End doLogin');
     }
 
