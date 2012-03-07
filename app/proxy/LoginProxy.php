@@ -1,4 +1,6 @@
 <?
+$requestURL = 'http://api.bridginggood.com:8080/auth/LoginByUserFromMobile.json';
+
 $postdata = http_build_query(
     array(
         'UserEmail' => $_POST['email'],
@@ -20,10 +22,13 @@ $opts = array('http' =>
  
 $context  = stream_context_create($opts);
  
-$result = file_get_contents('http://api.bridginggood.com:8080/auth/LoginByUserFromMobile.json', false, $context);
+$result = file_get_contents($requestURL, false, $context);
 
-//Convert $result to JSON
-$items = explode(',', str_replace('"', '', $result));
+$result = str_replace('{','',$result);
+$result = str_replace('}','',$result);
+$result = str_replace('"','',$result);
+
+$items = explode(',', $result);
 $array = array();
 foreach($items as $item) {
   list($key, $value) = explode(':', $item, 2);
@@ -31,7 +36,9 @@ foreach($items as $item) {
 }
 
 if($array['resultCode'][0] == 'S')
-	echo '{success: true}';
+	$array['success'] = true;
 else
-	echo '{failure: true}';
+	$array['success'] = false;
+	
+echo json_encode($array);
 ?>
