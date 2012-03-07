@@ -28,13 +28,13 @@ Ext.define('BG.view.LoginView', {
                         name : 'email',
                         label: 'E-mail',
 						placeHolder: 'E-mail',
-						value: 'jslim@bg.com' //Temp
+						value: 'jslim@bg.com' //TODO: Temp. Delete this later
                     },{
                         xtype: 'passwordfield',
                         name : 'password',
                         label: 'Password',
 						placeHolder: 'Password',
-						value: 'foobar' //Temp
+						value: 'foobar' //TODO: Temp. Delete this later
                     }
                 ],
             },{

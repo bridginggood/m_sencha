@@ -5,7 +5,8 @@ Ext.define('BG.controller.LoginController', {
         refs: {
             loginView: 'loginView',		//LoginView
 			mainView: 'mainView',		//MainView
-			loginButton: 'button[action=doLogin]'	//Login button
+			loginButton: 'button[action=doLogin]',	//Login button
+			user: 'user'	//User Model
         },
         control: {
             loginButton: {
@@ -15,12 +16,14 @@ Ext.define('BG.controller.LoginController', {
 
     },
 
+	//Function to attempt user login
     doLogin: function(list, record) {
-		//TODO: Implement login
 		console.log('Start doLogin');
-		//Ext.Viewport.add({xtype: 'mainView'});	//Can this line be omitted? Why? Because it has already been initialized from the app.js with 'requires' statement? Hmm...
-		var loginForm = this.getLoginView();
 		
+		var loginController = this;
+		var loginForm = this.getLoginView();
+		//var user = this.getUser();
+
 		//Set loading dialog mask
 		loginForm.setMasked({xtype: 'loadmask', message: 'Loading'});
 		
@@ -33,16 +36,19 @@ Ext.define('BG.controller.LoginController', {
 			success:function(form, response){
 				loginForm.setMasked(false);
 				console.log(response);
+				console.log(response['UserEmail']);
+				//loginController.setUser('UserEmail', response['UserEmail']);
+				//user.set('UserEmail', response['UserEmail']);
+				//console.log(user);
 				Ext.Viewport.setActiveItem({xtype: 'mainView'});
 			},
 			
 			//Failed login
 			failure:function(){
 				loginForm.setMasked(false);
-				Ext.Msg.alert('Error', 'Invalid username/password');
+				Ext.Msg.alert('Error', 'Invalid username or password.');
 			},
 		});
 		console.log('End doLogin');
-    }
-
+    },
 });

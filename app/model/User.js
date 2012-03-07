@@ -1,5 +1,6 @@
 Ext.define('BG.model.User',{
 	extend: 'Ext.data.Model',
+	xtype: 'user', 
 	
 	config:{
 		fields: [
