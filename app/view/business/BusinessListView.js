@@ -1,11 +1,9 @@
 Ext.define('BG.view.business.BusinessListView',{
 	extend: 'Ext.Panel', 
-	xtype: 'businessListView',
+	alias: 'widget.businessListView',
 	
 	requires:[
 	'Ext.carousel.Carousel',
-	'BG.view.business.BusinessList',
-	'BG.view.business.BusinessDetailView'
 	],
 	
 	config: {

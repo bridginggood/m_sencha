@@ -1,7 +1,6 @@
 Ext.define('BG.model.User',{
 	extend: 'Ext.data.Model',
-	xtype: 'user', 
-	
+
 	config:{
 		fields: [
 			{name: 'UserId', type:'string'},
@@ -10,6 +9,6 @@ Ext.define('BG.model.User',{
 			{name: 'UserLastName', type:'string'},
 			{name: 'UserType', type:'string'},
 			{name: 'QRCode', type:'string'},
-		]
+		],
 	},
 });

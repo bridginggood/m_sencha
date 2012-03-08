@@ -1,6 +1,7 @@
 Ext.define('BG.view.LoginView', {
     extend: 'Ext.form.Panel',
-    xtype: 'loginView',
+    alias: 'widget.loginView',
+
     requires: [
         'Ext.form.FieldSet',
 		'Ext.field.Email',

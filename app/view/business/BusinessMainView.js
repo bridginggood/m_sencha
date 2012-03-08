@@ -1,11 +1,7 @@
 Ext.define('BG.view.business.BusinessMainView',{
 	extend: 'Ext.NavigationView', 
-	xtype: 'businessMainView',
-	
-	requires:[
-	'BG.view.business.BusinessListView',
-	],
-	
+	alias: 'widget.businessMainView',
+
 	config: {
 		title: 'Business',
 		iconCls: 'trash',
@@ -31,5 +27,12 @@ Ext.define('BG.view.business.BusinessMainView',{
 		items:[
 			{xtype: 'businessListView'}	//Add businessListView only at init
 		]
+	},
+	
+	initialize:function(){
+		console.log('BusinessMainView loaded');
+		Ext.create('BG.store.BusinessStore', {storeId: 'businessStore'}).load();
+		//Ext.getStore('businessStore').load();
+		//Ext.getCmp('businessListView').reload();
 	}
 });

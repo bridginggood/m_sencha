@@ -1,13 +1,8 @@
 Ext.define('BG.view.MainView', {
 	extend: 'Ext.TabPanel',
-	xtype: 'mainView',
-	requires:[
-	'BG.view.charity.CharityMainView', 
-	'BG.view.user.UserMainView',
-	'BG.view.business.BusinessMainView'],
+	alias: 'widget.mainView',
 
 	config:{
-		
 		//Place the tab on the bottom|center of the screen.
 		tabBar:{
 			docked: 'bottom',

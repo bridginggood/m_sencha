@@ -1,6 +1,6 @@
 Ext.define('BG.view.business.BusinessDetailView', {
     extend: 'Ext.Panel',
-    xtype: 'businessDetailView',
+    alias: 'widget.businessDetailView',
 
     config: {
         title: 'Details',

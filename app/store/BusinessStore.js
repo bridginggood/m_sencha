@@ -4,17 +4,9 @@ Ext.define('BG.store.BusinessStore',{
 	
 	config:{
 		model: 'BG.model.Business',
-		autoLoad: true,
-		/*
-		SAMPLE DATA for local testing
-		
-		data:[
-		{ BusinessName: "Taj", BusinessAddress:"Gangnam, Seoul, Korea"},
-		{ BusinessName: "TajA", BusinessAddress:"A, Seoul, Korea"},
-		{ BusinessName: "TajB", BusinessAddress:"B, Seoul, Korea"},
-		{ BusinessName: "TajC", BusinessAddress:"C, Seoul, Korea"},
-		],
-		*/
+		autoLoad: false,
+		//storeId: 'businessStore',
+
 		proxy:{
 			type: 'jsonp',
 			url: 'http://api.bridginggood.com:8080/business_info/index.json',

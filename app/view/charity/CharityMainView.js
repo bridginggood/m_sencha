@@ -1,10 +1,6 @@
 Ext.define('BG.view.charity.CharityMainView',{
 	extend: 'Ext.Panel', 
-	xtype: 'charityMainView',
-
-	requires:[
-	'Ext.carousel.Carousel'
-	],
+	alias: 'widget.charityMainView',
 
 	config: {
 		title: 'Charity',
